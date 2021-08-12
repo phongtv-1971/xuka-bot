@@ -1,0 +1,22 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8mb4
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  host: <%= ENV.fetch("DATABASE_HOST", "localhost") %>
+  username: <%= ENV.fetch("DATABASE_USERNAME", "root") %>
+  password: <%= ENV["DATABASE_PASSWORD"] %>
+  database: <%= ENV["DATABASE_NAME"] %>
+  socket: <%= ENV.fetch("DATABASE_SOCKET", "/var/run/mysqld/mysqld.sock") %>
+
+development:
+  <<: *default
+
+test:
+  <<: *default
+  database: xuka_bot_test
+
+production:
+  <<: *default
+  database: xuka_bot_production
+  username: xuka_bot
+  password: <%= ENV['XUKA_BOT_DATABASE_PASSWORD'] %>
