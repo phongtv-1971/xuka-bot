@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   get "health-check", to: "health_check#index"
 
   draw :api_v1
+  draw :admin
 end

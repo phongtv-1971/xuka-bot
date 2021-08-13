@@ -10,6 +10,60 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2021_08_14_095103) do
+
+  create_table "admins", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.string "user_name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "answers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.boolean "is_correct", default: false
+    t.bigint "question_id", null: false
+    t.text "content"
+    t.text "explain"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["question_id"], name: "index_answers_on_question_id"
+  end
+
+  create_table "bots", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.bigint "admin_id", null: false
+    t.string "bot_name"
+    t.string "token"
+    t.string "room_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["admin_id"], name: "index_bots_on_admin_id"
+    t.index ["room_id"], name: "index_bots_on_room_id"
+  end
+
+  create_table "questions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.text "content"
+    t.integer "type"
+    t.bigint "bot_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["bot_id"], name: "index_questions_on_bot_id"
+  end
+
+  create_table "score_boards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.bigint "question_id", null: false
+    t.string "submit_id"
+    t.string "order_answers"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["question_id"], name: "index_score_boards_on_question_id"
+  end
+
+  create_table "user_answers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.bigint "score_board_id", null: false
+    t.string "submit_id"
+    t.boolean "is_correct", default: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["score_board_id"], name: "index_user_answers_on_score_board_id"
+  end
 
 end
