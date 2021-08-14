@@ -5,7 +5,6 @@ class ActionDispatch::Routing::Mapper
 end
 
 Rails.application.routes.draw do
-  devise_for :admins
   get "health-check", to: "health_check#index"
 
   draw :api_v1

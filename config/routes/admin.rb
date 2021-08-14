@@ -1,3 +1,5 @@
-scope module: :admin, as: :admin do
-  root to: 'dashboard#dashboard'
+devise_for :admins
+
+scope module: :admins, as: :admins do
+  root to: "dashboard#dashboard"
 end
