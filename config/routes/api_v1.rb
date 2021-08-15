@@ -1,5 +1,5 @@
 namespace :api, format: :json do
   namespace :v1 do
-    # setting routes API here
+    resources :cws
   end
 end

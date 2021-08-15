@@ -17,6 +17,7 @@ test:
 
 production:
   <<: *default
+  adapter: postgresql
   database: xuka_bot_production
   username: xuka_bot
   password: <%= ENV['XUKA_BOT_DATABASE_PASSWORD'] %>
