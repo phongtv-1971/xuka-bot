@@ -1,5 +1,5 @@
 namespace :api, format: :json do
   namespace :v1 do
-    resources :cws
+    post :cw_hook, to: "hooks#chatwork"
   end
 end
