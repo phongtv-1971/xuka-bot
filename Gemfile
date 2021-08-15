@@ -11,7 +11,6 @@ gem "sass-rails", ">= 6"
 gem "turbolinks", "~> 5"
 gem "webpacker", "~> 4.0"
 gem "chatwork"
-gem "dotenv-rails"
 
 gem "bootsnap", ">= 1.4.2", require: false
 
@@ -35,10 +34,6 @@ group :test do
   gem "capybara", ">= 2.15"
   gem "selenium-webdriver"
   gem "webdrivers"
-end
-
-group :production do
-  gem "pg"
 end
 
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
