@@ -10,40 +10,12 @@
     <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" data-mutate-approach="sync"></script>
   </head>
 
-  <body>
-    <ul class="menu">
-      <div class="menu-header">
-        <i class="fas fa-robot"></i>
-        <span>Xuka</span>
-      </div>
-      <li class="hr-menu"></li>
-      <li class="menu-item active">
-        <i class="fas fa-home"></i>
-        <span class="menu-text">Dashboard</span>
-      </li>
-      <li class="menu-item">
-        <i class="fab fa-discord"></i>
-        <span class="menu-text">Bot</span>
-      </li>
-      <li class="menu-item">
-        <i class="fas fa-question"></i>
-        <span class="menu-text">Question</span>
-      </li>
-      <li class="menu-item">
-        <i class="fas fa-star"></i>
-        <span class="menu-text">ScoreBoard</span>
-      </li>
-      <li class="menu-item">
-        <i class="fas fa-user-cog"></i>
-        <span class="menu-text">Admin Setting</span>
-      </li>
-      <div class="menu-item">
-        <i class="fas fa-sign-out-alt"></i>
-        <span class="menu-text">Logout</span>
-      </div>
-    </ul>
+  <body id="body-pd">
+    <%= render "layouts/sidebar" %>
     <section class="main-content">
-      <%= yield %>
+      <div class="content-container">
+        <%= yield %>
+      </div>
     </section>
   </body>
 </html>
