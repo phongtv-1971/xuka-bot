@@ -1,0 +1,51 @@
+.menu {
+  background: $black;
+  padding: 50px 15px;
+  width: 240px;
+  height: 100%;
+  position: fixed;
+
+  .menu-item.active {
+    background-color: $gray-dark;
+  }
+
+  .menu-item {
+    padding: 15px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    color: $white;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+
+    .menu-text {
+      display: inline-block;
+      margin-left: 10px;
+    }
+  }
+
+  .menu-header {
+    font-size: 30px;
+    color: $white;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    span {
+      display: inline-block;
+      margin-left: 10px;
+    }
+  }
+
+  .hr-menu {
+    height: 2px;
+    background-color: $white;
+    margin-bottom: 15px;
+  }
+}
+
+.main-content {
+  margin-left: 240px;
+  height: 100vh;
+  padding: 15px;
+}
