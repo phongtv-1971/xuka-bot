@@ -15,22 +15,35 @@
     display: flex;
     align-items: center;
     color: $white;
-    font-size: 16px;
+    font-size: 18px;
     cursor: pointer;
     width: 100%;
 
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
     .menu-text {
       display: inline-block;
       margin-left: 10px;
     }
+    .menu-icon {
+      width: 25px;
+    }
   }
 
   .menu-header {
-    font-size: 30px;
+    font-size: 18px;
     color: $white;
     padding: 15px;
     display: flex;
     align-items: center;
+    cursor: pointer;
+    width: 100%;
+
+    .header-icon {
+      width: 25px;
+    }
     span {
       display: inline-block;
       margin-left: 10px;
@@ -47,5 +60,11 @@
 .main-content {
   margin-left: 240px;
   height: 100vh;
-  padding: 15px;
+  padding: 30px;
+
+  .content-container {
+    background-color: $white;
+    height: 100%;
+    padding: 15px;
+  }
 }
