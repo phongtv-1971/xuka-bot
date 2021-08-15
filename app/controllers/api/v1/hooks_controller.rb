@@ -1,9 +1,5 @@
-class Api::V1::CwsController < Api::V1::BaseController
-  def index
-    render html: "index page"
-  end
-
-  def create
+class Api::V1::HooksController < Api::V1::BaseController
+  def chatwork
     # set up token
     ChatWork.api_key = ENV["BOT_ACCOUNT_TOKEN"]
 
@@ -17,7 +13,7 @@ class Api::V1::CwsController < Api::V1::BaseController
 
     # set up some params
     destination_room_id = ENV["DESTINATION_ROOM_ID"]
-    body = "Hello \nMessage in #{room_name}:\n#{body}"
+    body = "[rp aid=#{params[:webhook_event][:from_account_id]} to=#{params[:webhook_event][:room_id]}-#{params[:webhook_event][:message_id]}]\nEm chưa được dạy ạ (bow)"
 
     # change token to bot's token
     ChatWork.api_key = ENV["BOT_ACCOUNT_TOKEN"]
