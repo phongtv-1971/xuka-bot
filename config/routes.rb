@@ -5,6 +5,13 @@ class ActionDispatch::Routing::Mapper
 end
 
 Rails.application.routes.draw do
+  if ENV["DISPLAY_TOOL_FOR_DEV"].present?
+    require "sidekiq/web"
+    Sidekiq::Web.use ActionDispatch::Cookies
+    Sidekiq::Web.use ActionDispatch::Session::CookieStore, key: "_interslice_session"
+    mount Sidekiq::Web => "/sidekiq"
+  end
+
   get "health-check", to: "health_check#index"
 
   draw :api_v1

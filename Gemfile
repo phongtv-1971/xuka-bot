@@ -2,20 +2,19 @@ source "https://rubygems.org"
 git_source(:github) {|repo| "https://github.com/#{repo}.git"}
 
 ruby "2.5.3"
+gem "bootsnap", ">= 1.4.2", require: false
 gem "chatwork"
 gem "devise"
 gem "figaro"
+gem "google_drive"
 gem "jbuilder", "~> 2.7"
 gem "puma", "~> 4.1"
 gem "rack-cors"
 gem "rails", "~> 6.0.3", ">= 6.0.3.4"
 gem "sass-rails", ">= 6"
+gem "sidekiq"
 gem "turbolinks", "~> 5"
 gem "webpacker", "~> 4.0"
-gem "chatwork"
-gem "google_drive"
-
-gem "bootsnap", ">= 1.4.2", require: false
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]

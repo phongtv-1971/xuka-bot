@@ -14,10 +14,8 @@ class GetAnswerService
     worksheet = spreadsheet.worksheets.first
 
     worksheet.rows.reverse.each do |row|
-      if question.include? row[0]
-        return row[1]
-      end
+      return row[1] if question.include? row[0]
     end
-    return nil
+    nil
   end
 end
