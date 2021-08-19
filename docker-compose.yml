@@ -25,7 +25,8 @@ services:
       dockerfile: Dockerfile
     volumes:
     - .:/xukabot
-    command: bundle exec sidekiq
+    - bundle:/usr/local/bundle
+    command: bundle && bundle exec sidekiq
     depends_on:
       - xukabot
 
