@@ -1,11 +1,13 @@
 version: "3.8"
 services:
   xukabot:
+    tty: true
+    stdin_open: true
     build:
       context: .
       dockerfile: Dockerfile
     container_name: xukabot
-    command: sh /xukabot/docker/bin/wait-for-it.sh sh /xukabot/docker/bin/start_rails.sh production
+    command: sh /xukabot/docker/bin/wait-for-it.sh sh /xukabot/docker/bin/start_rails.sh development
     ports:
       - 3000:3000
     volumes:
@@ -24,7 +26,7 @@ services:
       context: .
       dockerfile: Dockerfile
     volumes:
-    - .:/xukabot
+      - .:/xukabot
     command: bundle exec sidekiq
     depends_on:
       - xukabot

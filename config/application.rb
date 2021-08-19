@@ -9,6 +9,8 @@ Bundler.require(*Rails.groups)
 module XukaBot
   class Application < Rails::Application
     config.load_defaults 6.0
+    config.active_job.queue_adapter = :sidekiq
+
     config.to_prepare do
       Devise::SessionsController.layout "devise"
       Devise::RegistrationsController.layout "devise"
