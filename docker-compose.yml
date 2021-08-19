@@ -25,8 +25,8 @@ services:
       dockerfile: Dockerfile
     volumes:
     - .:/xukabot
-    - bundle:/usr/local/bundle
-    command: bundle && bundle exec sidekiq
+    - bundle-sidekiq:/usr/local/bundle
+    command: bundle exec sidekiq
     depends_on:
       - xukabot
 
@@ -51,3 +51,4 @@ volumes:
   temp:
   mysql-data:
   redis_data:
+  bundle-sidekiq:
