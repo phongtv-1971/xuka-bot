@@ -1,0 +1,35 @@
+version: "3.8"
+services:
+  xukabot:
+    tty: true
+    stdin_open: true
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: xukabot
+    command: sh /xukabot/docker/bin/wait-for-it.sh sh /xukabot/docker/bin/start_rails.sh
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/xukabot:cached
+      - bundle:/usr/local/bundle
+    environment:
+      - XUKA_DATABASE_HOST=mysql
+      - XUKA_DATABASE_USERNAME=root
+      - XUKA_API_DATABASE_PASSWORD=root
+    depends_on:
+      - mysql
+
+  mysql:
+    image: mysql:5.7
+    ports:
+      - 3306:3306
+    volumes:
+      - mysql-data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+
+volumes:
+  bundle:
+  temp:
+  mysql-data:
