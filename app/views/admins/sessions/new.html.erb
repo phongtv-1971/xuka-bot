@@ -1,4 +1,4 @@
-<div id="login" class="login-containers w-25 p-5 rounded">
+<div id="login" class="login-containers p-5 rounded">
   <div class="container">
     <div id="login-row" class="row justify-content-center align-items-center">
       <div id="login-box" class="col-md-12">
@@ -32,6 +32,8 @@
               <span>Log in</span>
             </button>
           </div>
+          <p class="text-info"><%= notice %></p>
+          <p class="text-danger"><%= alert %></p>
           <div id="register-link" class="text-right pt-2">
             <%= render "admins/shared/links" %>
           </div>

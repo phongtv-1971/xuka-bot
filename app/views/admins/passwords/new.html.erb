@@ -1,4 +1,4 @@
-<div class="login-containers w-25 p-5 rounded">
+<div class="login-containers p-5 rounded">
   <h2>Forgot your password?</h2>
 
   <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
@@ -15,6 +15,7 @@
         <span>Send me reset password instructions</span>
       </button>
     </div>
+    <%= render "admins/shared/error_messages", resource: resource %>
   <% end %>
 
   <div id="register-link" class="text-right pt-2">

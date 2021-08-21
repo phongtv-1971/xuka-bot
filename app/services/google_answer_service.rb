@@ -1,6 +1,4 @@
-require "google_drive"
-
-class GetAnswerService
+class GoogleAnswerService
   attr_reader :question
 
   def initialize question
@@ -16,6 +14,7 @@ class GetAnswerService
     worksheet.rows.reverse.each do |row|
       return row[1] if question.include? row[0]
     end
-    nil
+
+    "Em chưa được dạy ạ (bow)"
   end
 end

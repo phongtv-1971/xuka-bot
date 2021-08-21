@@ -1,8 +1,7 @@
-<div class="login-containers w-25 p-5 rounded">
+<div class="login-containers p-5 rounded">
   <h2>Change your password</h2>
 
   <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
-    <%= render "admins/shared/error_messages", resource: resource %>
     <%= f.hidden_field :reset_password_token %>
 
     <div class="form-group">
@@ -21,6 +20,7 @@
         <span>Change my password</span>
       </button>
     </div>
+    <%= render "admins/shared/error_messages", resource: resource %>
   <% end %>
 
   <div id="register-link" class="text-right pt-2">
