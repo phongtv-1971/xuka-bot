@@ -10,6 +10,7 @@ module XukaBot
   class Application < Rails::Application
     config.load_defaults 6.0
     config.active_job.queue_adapter = :sidekiq
+    config.eager_load_paths += Dir["#{Rails.root.to_s}/lib"]
 
     config.to_prepare do
       Devise::SessionsController.layout "devise"
