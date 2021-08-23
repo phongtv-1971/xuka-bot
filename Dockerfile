@@ -2,7 +2,7 @@ FROM ruby:2.5.3-alpine
 
 ENV BUNDLER_VERSION=2.2.15
 
-RUN apk add --no-cache --update build-base mariadb-client mariadb-dev tzdata imagemagick yarn
+RUN apk add --no-cache --update build-base mariadb-client mariadb-dev tzdata less imagemagick yarn
 
 WORKDIR /xukabot
 

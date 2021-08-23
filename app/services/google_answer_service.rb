@@ -15,6 +15,6 @@ class GoogleAnswerService
       return row[1] if question.include? row[0]
     end
 
-    "Em chưa được dạy ạ (bow)"
+    Settings.hook.messages.default
   end
 end

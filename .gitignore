@@ -37,3 +37,7 @@ yarn-debug.log*
 .yarn-integrity
 .idea
 xuka-bot-key.json
+
+config/settings.local.yml
+config/settings/*.local.yml
+config/environments/*.local.yml
