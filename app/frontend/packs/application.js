@@ -7,6 +7,9 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
+require("jquery")
+require("js/side_bar")
+require.context('../images', true)
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
@@ -15,4 +18,6 @@ require("channels")
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
-import '../js/bootstrap_js_files.js'
+import "@fortawesome/fontawesome-free/css/all.css";
+import 'js/bootstrap_js_files.js'
+import 'css/application.scss'
