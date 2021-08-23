@@ -1,44 +1,52 @@
-<ul class="menu">
-  <div class="menu-header">
-    <i class="fas fa-bars header-icon"></i>
-    <span>Xuka</span>
+<div class="sidebar">
+  <div class="logo-details">
+    <i class='bx bxl-android icon'></i>
+    <div class="logo_name">Xukabot</div>
+    <i class='bx bx-menu' id="btn" ></i>
   </div>
-  <li class="hr-menu"></li>
-  <li class="menu-item active">
-    <%= link_to "#" do %>
-      <i class="fas fa-home menu-icon"></i>
-      <span class="menu-text">Dashboard</span>
-    <% end %>
-  </li>
-  <li class="menu-item">
-    <%= link_to "#" do %>
-      <i class="fab fa-discord menu-icon"></i>
-      <span class="menu-text">Bot</span>
-    <% end %>
-  </li>
-  <li class="menu-item">
-    <%= link_to "#" do %>
-      <i class="fas fa-question menu-icon"></i>
-      <span class="menu-text">Question</span>
-    <% end %>
-  </li>
-  <li class="menu-item">
-    <%= link_to "#" do %>
-      <i class="fas fa-star menu-icon"></i>
-      <span class="menu-text">ScoreBoard</span>
-    <% end %>
-  </li>
-  <li class="menu-item">
-    <%= link_to "#" do %>
-      <i class="fas fa-user-cog menu-icon"></i>
-      <span class="menu-text">Admin Setting</span>
-    <% end %>
-  </li>
-  <div class="menu-item">
+  <ul class="nav-list">
+    <li>
+      <a href="#">
+        <i class="fas fa-home menu-icon"></i>
+        <span class="links_name">Dashboard</span>
+      </a>
+      <span class="tooltip">Dashboard</span>
+    </li>
+    <li>
+      <a href="#">
+        <i class="fab fa-discord menu-icon"></i>
+        <span class="links_name">Bot</span>
+      </a>
+      <span class="tooltip">Bot</span>
+    </li>
+    <li>
+      <a href="#">
+        <i class="fas fa-question menu-icon"></i>
+        <span class="links_name">Question</span>
+      </a>
+      <span class="tooltip">Question</span>
+    </li>
+    <li>
+      <a href="#">
+        <i class="fas fa-star menu-icon"></i>
+        <span class="links_name">ScoreBoard</span>
+      </a>
+      <span class="tooltip">ScoreBoard</span>
+    </li>
+    <li>
+      <a href="#">
+        <i class="fas fa-user-cog menu-icon"></i>
+        <span class="links_name">Admin Setting</span>
+      </a>
+      <span class="tooltip">Admin Setting</span>
+    </li>
     <%= link_to destroy_admin_session_path do %>
-      <i class="fas fa-sign-out-alt menu-icon"></i>
-      <span class="menu-text">Logout</span>
+      <li class="profile">
+        <div class="user-name">
+          <%= current_admin.user_name %>
+        </div>
+        <i class='bx bx-log-out' id="log_out" ></i>
+      </li>
     <% end %>
-  </div>
-</ul>
-
+  </ul>
+</div>
