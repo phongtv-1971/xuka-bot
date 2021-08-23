@@ -1,14 +1,9 @@
 class Chatworks::AnswerService < Chatworks::BaseService
-  def initialize args
-    super
-    @question = args[:webhook_event][:body]
-  end
-
   def execute
-    answer = reply_message GoogleAnswerService.new(question).perform
-    bot.send_message answer
-  end
+    result = Question.search(raw_question, bot.id)
+    answer = (result.answers.first&.content if result&.train?)
+    answer ||= Settings.hook.messages.default
 
-  private
-  attr_reader :question
+    bot.send_message reply_message(answer)
+  end
 end

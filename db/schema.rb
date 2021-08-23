@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_14_135608) do
+ActiveRecord::Schema.define(version: 2021_08_14_135611) do
 
   create_table "admins", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "user_name"
@@ -48,11 +48,13 @@ ActiveRecord::Schema.define(version: 2021_08_14_135608) do
 
   create_table "questions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.text "content"
-    t.integer "type"
+    t.integer "question_type"
     t.bigint "bot_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "digist"
     t.index ["bot_id"], name: "index_questions_on_bot_id"
+    t.index ["digist"], name: "index_questions_on_digist", unique: true
   end
 
   create_table "score_boards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|

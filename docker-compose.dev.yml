@@ -28,7 +28,7 @@ services:
     volumes:
       - .:/xukabot
       - bundle-sidekiq:/usr/local/bundle
-    command: bundle exec sidekiq
+    command: sh /xukabot/docker/bin/start_sidekiq.sh
     depends_on:
       - xukabot
 
