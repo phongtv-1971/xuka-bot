@@ -87,6 +87,8 @@ GEM
     crass (1.0.6)
     declarative (0.0.20)
     deep_merge (1.2.1)
+    dentaku (3.4.2)
+      concurrent-ruby
     devise (4.8.0)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -368,6 +370,7 @@ DEPENDENCIES
   capybara (>= 2.15)
   chatwork
   config
+  dentaku
   devise
   figaro
   google_drive

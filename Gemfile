@@ -5,6 +5,7 @@ ruby "2.5.3"
 gem "bootsnap", ">= 1.4.2", require: false
 gem "chatwork"
 gem "config"
+gem "dentaku"
 gem "devise"
 gem "figaro"
 gem "google_drive"
