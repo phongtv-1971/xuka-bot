@@ -1,4 +1,4 @@
-class Chatworks::BaseService
+class Cw::BaseService
   def initialize args
     @room_id = args[:webhook_event][:room_id]
     @message_id = args[:webhook_event][:message_id]
@@ -9,7 +9,7 @@ class Chatworks::BaseService
   private
   attr_reader :room_id, :message_id, :reply_id, :body
 
-  def reply_message message
+  def reply message
     <<~RAW
       [rp aid=#{reply_id} to=#{room_id}-#{message_id}]
       #{message}
@@ -20,7 +20,10 @@ class Chatworks::BaseService
     @bot ||= Bot.find_by! room_id: room_id
   end
 
-  def raw_question
-    body.split("\n")[1..-1].map(&:strip).join("\n")
+  def raw_message
+    match = body.match(Settings.hook.regex.raw_message)
+    return "" if match.blank?
+
+    match[:message].strip
   end
 end
