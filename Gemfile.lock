@@ -120,6 +120,14 @@ GEM
       dry-equalizer (~> 0.2)
       dry-initializer (~> 3.0)
       dry-schema (~> 1.5, >= 1.5.2)
+    elasticsearch (7.13.3)
+      elasticsearch-api (= 7.13.3)
+      elasticsearch-transport (= 7.13.3)
+    elasticsearch-api (7.13.3)
+      multi_json
+    elasticsearch-transport (7.13.3)
+      faraday (~> 1)
+      multi_json
     erubi (1.10.0)
     faraday (1.7.0)
       faraday-em_http (~> 1.0)
@@ -293,6 +301,10 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
+    searchkick (4.6.0)
+      activemodel (>= 5)
+      elasticsearch (>= 6, < 7.14)
+      hashie
     sidekiq (6.2.1)
       connection_pool (>= 2.2.2)
       rack (~> 2.0)
@@ -367,6 +379,7 @@ DEPENDENCIES
   rubocop
   rubocop-checkstyle_formatter
   sass-rails (>= 6)
+  searchkick
   sidekiq
   spring
   spring-watcher-listen (~> 2.0.0)
