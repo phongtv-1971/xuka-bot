@@ -1,5 +1,5 @@
 class Question < ApplicationRecord
-  include DigistContentExtension
+  include QuestionSearchDecorator
 
   belongs_to :bot
   has_many :answers, dependent: :destroy
@@ -8,11 +8,4 @@ class Question < ApplicationRecord
   enum question_type: {single_choice: 0, multi_choice: 1, train: 3}
 
   strip_attributes only: :content
-
-  class << self
-    def search content, bot_id
-      digist = Digest::MD5.hexdigest(content.downcase)
-      find_by digist: digist, bot_id: bot_id
-    end
-  end
 end
