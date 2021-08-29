@@ -7,8 +7,11 @@ class Cw::AnswerService < Cw::BaseService
   private
 
   def query_answers
-    result = Question.search(raw_message, bot.id)
-    result.answers.first&.content if result&.train?
+    data = Question.search(raw_message, fields: [:content], where: {bot_id: bot.id, question_type: "train"})
+    return unless data.total_count.positive?
+
+    question = data.results.first
+    question.answers.first&.content
   end
 
   def calculation_results
