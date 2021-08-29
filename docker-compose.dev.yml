@@ -13,7 +13,7 @@ services:
     stdin_open: true
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: docker/images/app/Dockerfile
     container_name: xukabot
     command: sh /xukabot/docker/bin/wait-for-it.sh sh /xukabot/docker/bin/start_rails.sh development
     ports:
@@ -33,7 +33,7 @@ services:
   sidekiq:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: docker/images/app/Dockerfile
     volumes:
       - .:/xukabot
       - bundle-sidekiq:/usr/local/bundle
@@ -60,9 +60,39 @@ services:
       - redis_data:/data
     <<: *default-logging
 
+  es01:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.14.0
+    container_name: es01
+    environment:
+      - node.name=es01
+      - cluster.name=es-docker-cluster
+      - discovery.type=single-node
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - esdata:/usr/share/elasticsearch/data
+    ports:
+      - 59200:9200
+    <<: *default-logging
+
+  kibana:
+    image: docker.elastic.co/kibana/kibana:7.14.0
+    container_name: kibana
+    ports:
+      - 55601:5601
+    environment:
+      ELASTICSEARCH_URL: http://es01:9200
+      ELASTICSEARCH_HOSTS: '["http://es01:9200"]'
+    <<: *default-logging
+
 volumes:
   bundle:
   temp:
   mysql-data:
   redis_data:
   bundle-sidekiq:
+  esdata:

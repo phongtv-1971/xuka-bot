@@ -13,3 +13,6 @@ DISPLAY_TOOL_FOR_DEV: "false"
 
 # redis config
 REDIS_SERVER_URL: "redis://redis:6379/0"
+
+# elasticsearch config
+ELASTICSEARCH_URL: "http://es01:9200"
