@@ -1,3 +1,6 @@
 hook:
   messages:
-    default: "Em chưa được dạy ạ (bow)"
+    default: "¯\\_(ツ)_/¯"
+  regex:
+    raw_message: !ruby/regexp /\n(?<message>(.|\n)*)/
+    create_question: !ruby/regexp /QUESTION:(?<question>(.|\n)*)\nANSWER:(?<answer>(.|\n)*)/

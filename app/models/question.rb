@@ -7,6 +7,8 @@ class Question < ApplicationRecord
 
   enum question_type: {single_choice: 0, multi_choice: 1, train: 3}
 
+  strip_attributes only: :content
+
   class << self
     def search content, bot_id
       digist = Digest::MD5.hexdigest(content.downcase)

@@ -15,6 +15,7 @@ gem "rack-cors"
 gem "rails", "~> 6.0.3", ">= 6.0.3.4"
 gem "sass-rails", ">= 6"
 gem "sidekiq"
+gem "strip_attributes"
 gem "turbolinks", "~> 5"
 gem "webpacker", "~> 4.0"
 
@@ -32,12 +33,6 @@ group :development do
   gem "spring"
   gem "spring-watcher-listen", "~> 2.0.0"
   gem "web-console", ">= 3.3.0"
-end
-
-group :test do
-  gem "capybara", ">= 2.15"
-  gem "selenium-webdriver"
-  gem "webdrivers"
 end
 
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
