@@ -1,4 +1,12 @@
 version: "3.8"
+
+x-logging:
+  &default-logging
+  logging:
+    driver: json-file
+    options:
+      max-size: 50m
+
 services:
   xukabot:
     tty: true
@@ -20,6 +28,7 @@ services:
     depends_on:
       - mysql
       - redis
+    <<: *default-logging
 
   sidekiq:
     build:
@@ -31,6 +40,7 @@ services:
     command: sh /xukabot/docker/bin/start_sidekiq.sh
     depends_on:
       - xukabot
+    <<: *default-logging
 
   mysql:
     image: mysql:5.7
@@ -40,6 +50,7 @@ services:
       - mysql-data:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: root
+    <<: *default-logging
 
   redis:
     image: redis:4.0
@@ -47,6 +58,7 @@ services:
       - 56379:6379
     volumes:
       - redis_data:/data
+    <<: *default-logging
 
 volumes:
   bundle:
