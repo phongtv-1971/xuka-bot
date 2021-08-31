@@ -14,6 +14,10 @@ class Bot < ApplicationRecord
     ChatworkMessageJob.perform_later token, room_id, message
   end
 
+  def avatar_url
+    client.get_me.avatar_image_url
+  end
+
   private
 
   def correct_token?

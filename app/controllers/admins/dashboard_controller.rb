@@ -1,3 +1,7 @@
 class Admins::DashboardController < Admins::BaseController
-  def dashboard; end
+  skip_before_action :load_bot
+
+  def index
+    @bots = current_admin.bots
+  end
 end

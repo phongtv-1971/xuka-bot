@@ -1,23 +1,16 @@
 <div class="sidebar">
   <div class="logo-details">
     <i class='bx bxl-android icon'></i>
-    <div class="logo_name">Xukabot</div>
+    <div class="logo_name"><%= @current_bot.bot_name %></div>
     <i class='bx bx-menu' id="btn" ></i>
   </div>
   <ul class="nav-list">
     <li>
       <a href="#">
         <i class="fas fa-home menu-icon"></i>
-        <span class="links_name">Dashboard</span>
+        <span class="links_name">Home</span>
       </a>
-      <span class="tooltip">Dashboard</span>
-    </li>
-    <li>
-      <a href="#">
-        <i class="fab fa-discord menu-icon"></i>
-        <span class="links_name">Bot</span>
-      </a>
-      <span class="tooltip">Bot</span>
+      <span class="tooltip">Home</span>
     </li>
     <li>
       <a href="#">
@@ -35,17 +28,17 @@
     </li>
     <li>
       <a href="#">
-        <i class="fas fa-user-cog menu-icon"></i>
-        <span class="links_name">Admin Setting</span>
+        <i class="fab fa-discord menu-icon"></i>
+        <span class="links_name">Bot setting</span>
       </a>
-      <span class="tooltip">Admin Setting</span>
+      <span class="tooltip">Bot setting</span>
     </li>
     <%= link_to destroy_admin_session_path do %>
       <li class="profile">
         <div class="user-name">
           <%= current_admin.user_name %>
         </div>
-        <i class='bx bx-log-out' id="log_out" ></i>
+        <i class="fas fa-power-off" id="log_out" ></i>
       </li>
     <% end %>
   </ul>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>XukaBot</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <%= javascript_pack_tag 'dashboard', 'data-turbolinks-track': 'reload' %>
+  <%= favicon_pack_tag 'favicon.png' %>
+</head>
+
+<body>
+<div class="devise-container d-flex justify-content-center align-items-center vh-100">
+  <%= yield %>
+</div>
+</body>
+</html>
