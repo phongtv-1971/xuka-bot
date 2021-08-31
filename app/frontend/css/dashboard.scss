@@ -1,0 +1,87 @@
+@import "~bootstrap/scss/bootstrap";
+@import "variables";
+@import "main";
+
+.dashboard-container {
+  width: 450px;
+  border-radius: 16px;
+
+  .dashboard-header {
+    margin-top: 20px;
+  }
+
+  .list-bot {
+    margin: 20px;
+
+    .list-bot-items {
+      border-radius: 16px;
+      text-decoration: none;
+      color: $black;
+      position: relative;
+
+      .bot-avatar {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        padding: 10px;
+      }
+
+      .bot-name {
+        padding: 10px;
+      }
+
+      .go-to-bot {
+        position: absolute;
+        right: 10px;
+      }
+    }
+
+    .list-bot-items:hover {
+      background: $gray-light-rgba;
+    }
+  }
+
+  .dashboard-footer {
+    margin-bottom: 20px;
+
+    .dashboard-footer-link-items {
+      font-size: 50px;
+      text-decoration: none;
+      width: 50px;
+      position: relative;
+      color: $black;
+
+      .btn-tooltip {
+        position: absolute;
+        left: 24px;
+        top: calc(100% + 10px);
+        z-index: 3;
+        background: #fff;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+        border-radius: 4px;
+        font-size: 15px;
+        font-weight: 400;
+        white-space: nowrap;
+        transition: 0s;
+        opacity: 0;
+        pointer-events: none;
+        padding: 6px 12px;
+      }
+
+      .logout-link:hover {
+        color: #ff1e0d;
+      }
+
+      .create-bot-link:hover {
+        color: $green-light;
+      }
+    }
+
+    .dashboard-footer-link-items:hover .btn-tooltip {
+      opacity: 1;
+      pointer-events: auto;
+      transition: all 0.4s ease;
+      transform: translateX(-50%);
+    }
+  }
+}
