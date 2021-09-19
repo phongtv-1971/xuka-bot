@@ -1,0 +1,35 @@
+<div class="bot-containers p-5 rounded">
+  <div class="container">
+    <div class="row justify-content-center align-items-center">
+      <div class="col-md-12">
+        <%= form_with url: admins_bots_path, local: true do |f| %>
+          <div class="d-flex align-items-center justify-content-center fs-3 pb-2">
+            <span class="fw-lighter">Create Bot</span>
+          </div>
+          <div class="form-group">
+            <label for="bot_name">Bot Name:</label><br>
+            <%= f.text_field :bot_name, class: "form-control", value: params[:bot_name] %>
+          </div>
+          <div class="form-group">
+            <label for="token">Token:</label><br>
+            <%= f.text_field :token, class: "form-control", value: params[:token] %>
+          </div>
+          <div class="form-group">
+            <label for="room_id">Room ID:</label><br>
+            <%= f.text_field :room_id, class: "form-control", value: params[:room_id] %>
+          </div>
+          <div class="form-action d-block pt-2">
+            <button type="submit" class="btn btn-md btn-dark w-100 d-flex justify-content-center align-items-center">
+              <i class="fas fa-sign-in-alt pe-1"></i>
+              <span>Create</span>
+            </button>
+          </div>
+          <%= render "admins/shared/error_messages", resource: @resource %>
+          <div class="text-right pt-2">
+            <%= link_to "Dashboard", admins_root_path, class: "text-dark" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -3,6 +3,7 @@ class Bot < ApplicationRecord
   has_many :questions, dependent: :destroy
 
   validates :room_id, uniqueness: true
+  validates_numericality_of :room_id, only_integer: true
   validates :token, presence: true
   validate :correct_token?
 
