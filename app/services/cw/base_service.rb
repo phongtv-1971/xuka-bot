@@ -4,10 +4,11 @@ class Cw::BaseService
     @message_id = args[:webhook_event][:message_id]
     @reply_id = args[:webhook_event][:from_account_id]
     @body = args[:webhook_event][:body]
+    @args = args
   end
 
   private
-  attr_reader :room_id, :message_id, :reply_id, :body
+  attr_reader :room_id, :message_id, :reply_id, :body, :args
 
   def reply message
     <<~RAW

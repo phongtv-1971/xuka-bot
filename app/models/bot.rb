@@ -11,8 +11,8 @@ class Bot < ApplicationRecord
     ChatWork::Client.new(api_key: token)
   end
 
-  def send_message message
-    ChatworkMessageJob.perform_later token, room_id, message
+  def send_message message, undefined_question = nil
+    ChatworkMessageJob.perform_later token, room_id, message, undefined_question
   end
 
   def avatar_url
