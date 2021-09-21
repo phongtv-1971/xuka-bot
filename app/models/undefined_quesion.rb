@@ -1,0 +1,2 @@
+class UndefinedQuesion < ApplicationRecord
+end
