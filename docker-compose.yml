@@ -35,7 +35,7 @@ services:
     volumes:
     - .:/xukabot
     - bundle-sidekiq:/usr/local/bundle
-    command: sh /xukabot/docker/bin/start_sidekiq.sh
+    command: sh /xukabot/docker/bin/start_sidekiq.sh production
     depends_on:
       - xukabot
     <<: *default-logging

@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 # start_sidekiq.sh
 
-bundle install
+enviroiment=$1
 
-bundle exec sidekiq
+RAILS_ENV=$enviroiment bundle install
+
+RAILS_ENV=$enviroiment bundle exec rails db:prepare db:migrate
+
+RAILS_ENV=$enviroiment bundle exec sidekiq
